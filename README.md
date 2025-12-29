@@ -335,13 +335,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📊 Screenshots
 
 ### Main Dashboard
-![Dashboard](https://via.placeholder.com/800x400/1a1a2e/00D9FF?text=Main+Dashboard)
+<img width="1470" height="802" alt="image" src="https://github.com/user-attachments/assets/27c972d0-03d1-4368-ab64-b0c4a3d0015d" />
+
 
 ### Interactive Charts
-![Charts](https://via.placeholder.com/800x400/1a1a2e/C0FF00?text=Interactive+Charts)
+<img width="1470" height="802" alt="image" src="https://github.com/user-attachments/assets/37dd3312-9147-476a-9b3a-76c14940c9e6" />
+
 
 ### Dataset Comparison
-![Comparison](https://via.placeholder.com/800x400/1a1a2e/FF6B9D?text=Dataset+Comparison)
+<img width="1470" height="802" alt="image" src="https://github.com/user-attachments/assets/d8fe27ed-fc90-469e-8f8a-d8314d520ad0" />
+
 
 ---
 
