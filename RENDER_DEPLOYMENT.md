@@ -29,7 +29,7 @@ InsightFlow is a full-stack application that requires **TWO separate deployments
 | **Branch** | `main` |
 | **Root Directory** | `backend` |
 | **Runtime** | `Python 3` |
-| **Build Command** | `pip install -r requirements.txt` |
+| **Build Command** | `chmod +x build.sh && ./build.sh` |
 | **Start Command** | `gunicorn app:app` |
 | **Instance Type** | Free (or paid for better performance) |
 

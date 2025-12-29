@@ -18,7 +18,7 @@ You CANNOT deploy it as just a Static Site.
 | **Branch** | `main` |
 | **Root Directory** | `backend` |
 | **Runtime** | `Python 3` |
-| **Build Command** | `pip install -r requirements.txt` |
+| **Build Command** | `chmod +x build.sh && ./build.sh` |
 | **Start Command** | `gunicorn app:app` |
 | **Instance Type** | Free |
 
