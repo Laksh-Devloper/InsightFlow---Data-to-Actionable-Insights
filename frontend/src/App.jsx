@@ -113,6 +113,9 @@ function App() {
         analyzeData(uploadInfo2.filepath)
       ]);
 
+      console.log('Analysis 1:', analysis1);
+      console.log('Analysis 2:', analysis2);
+
       setAnalysisResults(analysis1);
       setAnalysisResults2(analysis2);
 

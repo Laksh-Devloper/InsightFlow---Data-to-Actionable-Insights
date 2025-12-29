@@ -1,6 +1,32 @@
 import './DatasetComparison.css';
 
 function DatasetComparison({ dataset1, dataset2, uploadInfo1, uploadInfo2 }) {
+    // Debug logging
+    console.log('DatasetComparison received:', { dataset1, dataset2, uploadInfo1, uploadInfo2 });
+
+    // Validate that datasets have the required structure
+    if (!dataset1 || !dataset1.statistics || !dataset1.statistics.overview || !dataset1.preview || !dataset1.cleaning_report) {
+        return (
+            <div className="dataset-comparison">
+                <div className="comparison-header">
+                    <h2>⚠️ Error Loading Dataset 1</h2>
+                    <p>The first dataset is missing required data. Please try re-analyzing.</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (!dataset2 || !dataset2.statistics || !dataset2.statistics.overview || !dataset2.preview || !dataset2.cleaning_report) {
+        return (
+            <div className="dataset-comparison">
+                <div className="comparison-header">
+                    <h2>⚠️ Error Loading Dataset 2</h2>
+                    <p>The second dataset is missing required data. Please try re-analyzing.</p>
+                </div>
+            </div>
+        );
+    }
+
     // Extract data for comparison
     const stats1 = dataset1.statistics.overview;
     const stats2 = dataset2.statistics.overview;

@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 import pandas as pd
+import numpy as np
 import os
 from io import BytesIO
 from werkzeug.utils import secure_filename
@@ -26,9 +27,43 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
+def clean_nan_values(obj):
+    """
+    Recursively replace NaN and infinity values with None for JSON serialization.
+    This prevents JSON parsing errors on the frontend.
+    """
+    if isinstance(obj, dict):
+        return {key: clean_nan_values(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [clean_nan_values(item) for item in obj]
+    elif isinstance(obj, float):
+        if np.isnan(obj) or np.isinf(obj):
+            return None
+        return obj
+    return obj
+
+
+
 def allowed_file(filename):
     """Check if file extension is allowed."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - redirects to health check."""
+    return jsonify({
+        'service': 'InsightFlow API',
+        'status': 'running',
+        'version': '1.0.0',
+        'endpoints': {
+            'health': '/api/health',
+            'upload': '/api/upload',
+            'analyze': '/api/analyze',
+            'charts': '/api/generate-plotly-chart',
+            'export': '/api/export-pdf'
+        }
+    }), 200
 
 
 @app.route('/api/health', methods=['GET'])
@@ -144,6 +179,9 @@ def analyze_data():
             'charts': charts,
             'insights': insights
         }
+        
+        # Clean NaN values to prevent JSON parsing errors
+        results = clean_nan_values(results)
         
         return jsonify(results), 200
     
