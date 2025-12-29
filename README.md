@@ -9,7 +9,7 @@ InsightFlow is a full-stack intelligent data analysis platform that converts raw
 [![Flask](https://img.shields.io/badge/Flask-3.0-000000.svg)](https://flask.palletsprojects.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-![InsightFlow Demo]
+InsightFlow Demo
 https://insightflow-data-to-actionable-insights-3.onrender.com/
 
 ---
